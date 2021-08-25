@@ -31,7 +31,6 @@ class Player extends Entity {
     this.x = Phaser.Math.Clamp(this.x, 8, this.scene.game.config.width - 8);
     this.y = Phaser.Math.Clamp(this.y, 8, this.scene.game.config.height - 8);
     if (this.getData('isShooting')) {
-      debugger;
       if (this.getData('shotTickTimer') < this.getData('shotDelayTimer')) {
         this.setData('shotTickTimer', this.getData('shotTickTimer') + 1);
       } else {

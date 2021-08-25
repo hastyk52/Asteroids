@@ -16,7 +16,6 @@ class MainMenu extends Phaser.Scene {
   }
 
   create() {
-    debugger;
     this.btnPlay = this.add.sprite(this.game.config.width * 0.5, this.game.config.height * 0.7, 'sprBtnPlay');
     this.btnPlay.setInteractive();
 
@@ -34,8 +33,9 @@ class MainMenu extends Phaser.Scene {
 
     this.btnPlay.on('pointerup', () => {
       this.btnPlay.setTexture('sprBtnPlayHover');
-      if (document.getElementById('playerName')) {
-        if (document.getElementById('playerName').innerText) {
+
+      if (document.getElementById('username')) {
+        if (document.getElementById('username').innerText) {
           this.scene.start('Main');
         } else {
           this.add.text(this.game.config.width * 0.5, this.game.config.height * 0.5, 'Please login', { fontSize: 20 });
