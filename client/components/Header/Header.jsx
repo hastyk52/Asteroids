@@ -9,8 +9,8 @@ const Header = ({ user, handleLogin }) => (
         <span>{'Good luck '}</span>
         <span id="username">{user}</span>
       </div>
-    ) : null}
-    <Login handleLogin={handleLogin} />
+    ) : <Login handleLogin={handleLogin} />}
+
   </header>
 );
 

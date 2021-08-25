@@ -22,6 +22,6 @@ const config = {
   pixelArt: true,
 };
 
-const game = new Phaser.Game(config);
-
 ReactDOM.render(<App />, document.getElementById('app'));
+
+const game = new Phaser.Game(config);

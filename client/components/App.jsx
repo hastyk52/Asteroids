@@ -20,6 +20,13 @@ class App extends React.Component {
     return (
       <>
         <Header user={user} handleLogin={this.handleLogin} />
+        <div style={{ display: 'flex' }}>
+          <div style={{ display: 'inline-block' }}>
+            <h3>SCOREBOARD</h3>
+            <div> cooluser1      42</div>
+          </div>
+          <div id="phaser" />
+        </div>
       </>
     );
   }
