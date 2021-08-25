@@ -11,7 +11,15 @@ const config = {
   parent: 'phaser',
   width: 800,
   height: 600,
+  backgroundColor: 'black',
+  physics: {
+    default: 'arcade',
+    arcade: {
+      gravity: { x: 0, y: 0 },
+    },
+  },
   scene: [MainMenu, Main, GameOver],
+  pixelArt: true,
 };
 
 const game = new Phaser.Game(config);
