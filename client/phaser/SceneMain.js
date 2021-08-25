@@ -6,11 +6,13 @@ import sprBg1 from '../assets/sprBg1.png';
 import sprExplosion from '../assets/sprExplosion.png';
 import sprLaserPlayer from '../assets/sprLaserPlayer.png';
 import sprPlayer from '../assets/sprPlayer.png';
-
-import Player from './entities/Player';
+import sprEnemy1 from '../assets/sprEnemy1.png';
 // import sndExplode0 from '../assets/sndExplode0.wav';
 // import sndExplode1 from '../assets/sndExplode1.wav';
 // import sndLaser from '../assets/sndLaser.wav';
+
+import Player from './entities/Player';
+import Meteor from './entities/Meteor';
 
 class Main extends Phaser.Scene {
   constructor() {
@@ -30,6 +32,7 @@ class Main extends Phaser.Scene {
       frameWidth: 16,
       frameHeight: 16,
     });
+    this.load.image('sprEnemy1', sprEnemy1);
     // this.load.audio('sndExplode0', sndExplode0);
     // this.load.audio('sndExplode1', sndExplode1);
     // this.load.audio('sndLaser', sndLaser);
@@ -62,13 +65,83 @@ class Main extends Phaser.Scene {
 
     // add player
     // eslint-disable-next-line max-len
-    this.player = new Player(this, this.game.config.width * 0.5, this.game.config.height * 0.5, sprPlayer);
+    this.player = new Player(this, this.game.config.width * 0.5, this.game.config.height * 0.5, 'sprPlayer');
 
+    // Add key listeners
     this.keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
     this.keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
     this.keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
     this.keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
     this.keySpace = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+
+    // make groups
+    this.enemies = this.add.group();
+    this.playerLasers = this.add.group();
+
+    // create timer event to spawn meteors from each side of the screen
+    // TOP
+    this.time.addEvent({
+      delay: 500,
+      callback() {
+        // debugger;
+        const xPos = Phaser.Math.Between(0, this.game.config.width);
+        const theta = Phaser.Math.Between(-45, 45);
+        const velocityY = Phaser.Math.Between(50, 100);
+        const velocityX = Math.tan(theta * (Math.PI / 180)) * velocityY;
+        const meteor = new Meteor(this, xPos, 0, velocityX, velocityY);
+        this.enemies.add(meteor);
+      },
+      callbackScope: this,
+      loop: true,
+    });
+
+    // BOTTOM
+    this.time.addEvent({
+      delay: 500,
+      callback() {
+        // debugger;
+        const xPos = Phaser.Math.Between(0, this.game.config.width);
+        const theta = Phaser.Math.Between(-45, 45);
+        const velocityY = Phaser.Math.Between(50, 100);
+        const velocityX = Math.tan(theta * (Math.PI / 180)) * velocityY;
+        const meteor = new Meteor(this, xPos, this.game.config.height, velocityX, -velocityY);
+        this.enemies.add(meteor);
+      },
+      callbackScope: this,
+      loop: true,
+    });
+
+    // LEFT
+    this.time.addEvent({
+      delay: 500,
+      callback() {
+        // debugger;
+        const yPos = Phaser.Math.Between(0, this.game.config.height);
+        const theta = Phaser.Math.Between(-45, 45);
+        const velocityX = Phaser.Math.Between(50, 100);
+        const velocityY = Math.tan(theta * (Math.PI / 180)) * velocityX;
+        const meteor = new Meteor(this, 0, yPos, velocityX, velocityY);
+        this.enemies.add(meteor);
+      },
+      callbackScope: this,
+      loop: true,
+    });
+
+    // RIGHT
+    this.time.addEvent({
+      delay: 500,
+      callback() {
+        // debugger;
+        const yPos = Phaser.Math.Between(0, this.game.config.height);
+        const theta = Phaser.Math.Between(-45, 45);
+        const velocityX = Phaser.Math.Between(50, 100);
+        const velocityY = Math.tan(theta * (Math.PI / 180)) * velocityX;
+        const meteor = new Meteor(this, this.game.config.width, yPos, -velocityX, velocityY);
+        this.enemies.add(meteor);
+      },
+      callbackScope: this,
+      loop: true,
+    });
   }
 
   update() {
