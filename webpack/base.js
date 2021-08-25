@@ -49,12 +49,12 @@ module.exports = {
     new CleanWebpackPlugin({
       root: path.resolve(__dirname, '../'),
     }),
-    new CopyWebpackPlugin([
-      {
-        from: path.resolve(__dirname, 'assets', '**', '*'),
-        to: path.resolve(__dirname, 'build'),
-      },
-    ]),
+    // new CopyWebpackPlugin([
+    //   {
+    //     from: path.resolve(__dirname, 'assets', '**', '*'),
+    //     to: path.resolve(__dirname, 'build'),
+    //   },
+    // ]),
     new webpack.DefinePlugin({
       CANVAS_RENDERER: JSON.stringify(true),
       WEBGL_RENDERER: JSON.stringify(true),

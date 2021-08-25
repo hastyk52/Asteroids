@@ -27,7 +27,7 @@ class Main extends Phaser.Scene {
       frameWidth: 32,
       frameHeight: 32,
     });
-    this.load.image('sprLaserPlayer', sprLaserPlayer.png);
+    this.load.image('sprLaserPlayer', sprLaserPlayer);
     this.load.spritesheet('sprPlayer', sprPlayer, {
       frameWidth: 16,
       frameHeight: 16,
@@ -148,19 +148,22 @@ class Main extends Phaser.Scene {
     this.player.update();
 
     if (this.keyW.isDown) {
-      this.player.moveUp();
-    }
-
-    if (this.keyS.isDown) {
-      this.player.moveDown();
+      this.player.fowardThrust();
     }
 
     if (this.keyA.isDown) {
-      this.player.moveLeft();
+      this.player.spinCounterClockwise();
     }
 
     if (this.keyD.isDown) {
-      this.player.moveRight();
+      this.player.spinClockwise();
+    }
+
+    if (this.keySpace.isDown) {
+      this.player.setData('isShooting', true);
+    } else {
+      this.player.setData('shotTickTimer', this.player.getData('shotDelayTimer') - 1);
+      this.player.setData('isShooting', false);
     }
   }
 }
