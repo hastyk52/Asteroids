@@ -142,28 +142,42 @@ class Main extends Phaser.Scene {
       callbackScope: this,
       loop: true,
     });
+
+    this.physics.add.collider(this.playerLasers, this.enemies, (laser, enemy) => {
+      enemy.explode(true); // defined in our entity class
+      laser.destroy(); // built in
+    });
+
+    this.physics.add.overlap(this.player, this.enemies, (player, enemy) => {
+      if (!player.getData('isDead') && !enemy.getData('isDead')) {
+        enemy.explode(true);
+        player.explode(false);
+      }
+    });
   }
 
   update() {
-    this.player.update();
+    if (!this.player.getData('isDead')) {
+      this.player.update();
 
-    if (this.keyW.isDown) {
-      this.player.fowardThrust();
-    }
+      if (this.keyW.isDown) {
+        this.player.fowardThrust();
+      }
 
-    if (this.keyA.isDown) {
-      this.player.spinCounterClockwise();
-    }
+      if (this.keyA.isDown) {
+        this.player.spinCounterClockwise();
+      }
 
-    if (this.keyD.isDown) {
-      this.player.spinClockwise();
-    }
+      if (this.keyD.isDown) {
+        this.player.spinClockwise();
+      }
 
-    if (this.keySpace.isDown) {
-      this.player.setData('isShooting', true);
-    } else {
-      this.player.setData('shotTickTimer', this.player.getData('shotDelayTimer') - 1);
-      this.player.setData('isShooting', false);
+      if (this.keySpace.isDown) {
+        this.player.setData('isShooting', true);
+      } else {
+        this.player.setData('shotTickTimer', this.player.getData('shotDelayTimer') - 1);
+        this.player.setData('isShooting', false);
+      }
     }
   }
 }

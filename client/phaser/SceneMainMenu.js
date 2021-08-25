@@ -1,5 +1,8 @@
 import Phaser from 'phaser';
 import logoImg from '../assets/logo.png';
+import sprBtnPlay from '../assets/sprBtnPlay.png';
+import sprBtnPlayHover from '../assets/sprBtnPlayHover.png';
+import sprBtnPlayDown from '../assets/sprBtnPlayDown.png';
 
 class MainMenu extends Phaser.Scene {
   constructor() {
@@ -7,21 +10,50 @@ class MainMenu extends Phaser.Scene {
   }
 
   preload() {
-    // this.load.image('logo', logoImg);
+    this.load.image('sprBtnPlay', sprBtnPlay);
+    this.load.image('sprBtnPlayHover', sprBtnPlayHover);
+    this.load.image('sprBtnPlayDown', sprBtnPlayDown);
   }
 
   create() {
-    this.scene.start('Main');
-    // const logo = this.add.image(400, 150, 'logo');
+    debugger;
+    this.btnPlay = this.add.sprite(this.game.config.width * 0.5, this.game.config.height * 0.7, 'sprBtnPlay');
+    this.btnPlay.setInteractive();
 
-    // this.tweens.add({
-    //   targets: logo,
-    //   y: 450,
-    //   duration: 2000,
-    //   ease: 'Power2',
-    //   yoyo: true,
-    //   loop: -1,
-    // });
+    this.btnPlay.on('pointerover', () => {
+      this.btnPlay.setTexture('sprBtnPlayHover');
+    }, this);
+
+    this.btnPlay.on('pointerout', () => {
+      this.btnPlay.setTexture('sprBtnPlay');
+    }, this);
+
+    this.btnPlay.on('pointerdown', () => {
+      this.btnPlay.setTexture('sprBtnPlayDown');
+    }, this);
+
+    this.btnPlay.on('pointerup', () => {
+      this.btnPlay.setTexture('sprBtnPlayHover');
+      if (document.getElementById('playerName')) {
+        if (document.getElementById('playerName').innerText) {
+          this.scene.start('Main');
+        } else {
+          this.add.text(this.game.config.width * 0.5, this.game.config.height * 0.5, 'Please login', { fontSize: 20 });
+        }
+      } else {
+        this.add.text(this.game.config.width * 0.5, this.game.config.height * 0.5, 'Please login', { fontSize: 20 }).setOrigin(0.5);
+      }
+    }, this);
+    // // const logo = this.add.image(400, 150, 'logo');
+
+    // // this.tweens.add({
+    // //   targets: logo,
+    // //   y: 450,
+    // //   duration: 2000,
+    // //   ease: 'Power2',
+    // //   yoyo: true,
+    // //   loop: -1,
+    // // });
   }
 }
 

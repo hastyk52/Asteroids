@@ -6,7 +6,6 @@ class Meteor extends Entity {
     super(scene, x, y, 'sprEnemy1', 'Meteor');
     this.body.velocity.x = velocityX;
     this.body.velocity.y = velocityY;
-    this.play('sprEnemy1');
   }
 
   update() {
