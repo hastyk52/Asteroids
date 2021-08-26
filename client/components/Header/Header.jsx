@@ -3,7 +3,7 @@ import Login from '../Login/Login';
 
 const Header = ({ user, handleLogin }) => (
   <header style={{ display: 'flex', justifyContent: 'space-between' }}>
-    <h1>Maelstrom</h1>
+    <h1>Asteroids</h1>
     {user ? (
       <div>
         <span>{'Good luck '}</span>

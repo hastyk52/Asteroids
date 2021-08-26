@@ -7,5 +7,6 @@ CREATE DATABASE asteroids;
 CREATE TABLE scores (
   id BIGSERIAL NOT NULL PRIMARY KEY,
   username TEXT NOT NULL,
-  score INT NOT NULL
+  score INT NOT NULL,
+  date TIMESTAMP NOT NULL
 );

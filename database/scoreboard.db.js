@@ -15,7 +15,12 @@ const readScores = async (limit, offset, orderBy, orderMethod) => {
     .catch((err) => (err));
 };
 
-const createScore = async () => {};
+const createScore = async (...values) => {
+  const text = 'INSERT INTO scores(username, score, date) VALUES ($1, $2, $3)';
+  const query = { text, values };
+
+  return db.query(query);
+};
 
 module.exports = {
   read: readScores,

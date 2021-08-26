@@ -17,7 +17,14 @@ const getScores = (req, res, next) => {
   }
 };
 
-const postScore = () => {};
+const postScore = (req, res, next) => {
+  console.log('post request recieved');
+  const { body } = req;
+  const { username, score } = body;
+  createScore(username, score)
+    .then(() => (res.sendStatus(201)))
+    .catch(() => (res.sendStatus(400)));
+};
 
 module.exports = {
   get: getScores,

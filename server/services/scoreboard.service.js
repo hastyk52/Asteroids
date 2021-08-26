@@ -16,7 +16,13 @@ const readScores = async (count = 10, page = 1, wantedScores = 'highscore') => {
   throw new Error('invalid Page');
 };
 
-const createScore = async () => {};
+const createScore = async (username, score) => {
+  const date = new Date();
+  if (typeof username === 'string' && username !== '' && score >= 0) {
+    return scoreboard.create(username, score, date);
+  }
+  throw new Error('invalid username or score');
+};
 
 module.exports = {
   readScores,
