@@ -3,24 +3,17 @@ const express = require('express');
 const cors = require('cors');
 const path = require('path');
 
+const router = require('./routes');
+
 const app = express();
 
 // serve static files from dist dir
 app.use('/', express.static(path.join(__dirname, '../dist')));
-// use express.json for parsing JSON
 app.use(express.json());
-// use cors middleware for enabling CORS with various options
+app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
-// app.get('/entries', (req, res) => {
-//   // queries.getEntry(req.query.name, (err, entry) => {
-//   //   if (err) {
-//   //     res.status(404).send(err);
-//   //   } else {
-//   //     res.status(200).send(entry);
-//   //   }
-//   // })
-// });
+app.use('/scoreboard', router);
 
 const port = 3006;
 app.listen(port, () => {
