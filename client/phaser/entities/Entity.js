@@ -8,6 +8,7 @@ class Entity extends Phaser.GameObjects.Sprite {
     this.scene.physics.world.enableBody(this, 0);
     this.setData('type', type);
     this.setData('isDead', false);
+    this.setData('ExplodedComplete', false);
   }
 
   explode(canDestroy) {
@@ -24,6 +25,7 @@ class Entity extends Phaser.GameObjects.Sprite {
         } else {
           this.setVisible(false);
         }
+        this.setData('ExplodedComplete', true);
       }, this);
       this.setData('isDead', true);
     }

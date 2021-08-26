@@ -11,6 +11,7 @@ class Player extends Entity {
     this.setData('isShooting', false);
     this.setData('shotDelayTimer', 20);
     this.setData('shotTickTimer', this.getData('shotDelayTimer') - 1);
+    this.setData('score', 0);
   }
 
   spinCounterClockwise() {

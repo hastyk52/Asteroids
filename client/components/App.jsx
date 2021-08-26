@@ -17,7 +17,6 @@ class App extends React.Component {
   componentDidMount() {
     axios.get('/scoreboard')
       .then(({ data }) => {
-        debugger;
         const { scores } = data;
         this.setState({ scores });
       });

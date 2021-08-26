@@ -143,9 +143,16 @@ class Main extends Phaser.Scene {
       loop: true,
     });
 
+    // Set up score
+    let score = 0;
+    let scoreText = this.add.text(16, 16, 'Score: 0', { fontSize: '32px', color: 'white' });
+
+    // Handle Collisions
     this.physics.add.collider(this.playerLasers, this.enemies, (laser, enemy) => {
       enemy.explode(true); // defined in our entity class
       laser.destroy(); // built in
+      score += 10;
+      scoreText.setText(`Score: ${score}`);
     });
 
     this.physics.add.overlap(this.player, this.enemies, (player, enemy) => {
@@ -153,6 +160,7 @@ class Main extends Phaser.Scene {
         enemy.explode(true);
         player.explode(false);
       }
+      player.setData('score', score);
     });
   }
 
@@ -178,6 +186,9 @@ class Main extends Phaser.Scene {
         this.player.setData('shotTickTimer', this.player.getData('shotDelayTimer') - 1);
         this.player.setData('isShooting', false);
       }
+    }
+    if (this.player.getData('ExplodedComplete')) {
+      this.scene.start('GameOver', { score: this.player.getData('score') });
     }
   }
 }

@@ -1,5 +1,4 @@
 import Phaser from 'phaser';
-import logoImg from '../assets/logo.png';
 import sprBtnPlay from '../assets/sprBtnPlay.png';
 import sprBtnPlayHover from '../assets/sprBtnPlayHover.png';
 import sprBtnPlayDown from '../assets/sprBtnPlayDown.png';
@@ -44,16 +43,6 @@ class MainMenu extends Phaser.Scene {
         this.add.text(this.game.config.width * 0.5, this.game.config.height * 0.5, 'Please login', { fontSize: 20 }).setOrigin(0.5);
       }
     }, this);
-    // // const logo = this.add.image(400, 150, 'logo');
-
-    // // this.tweens.add({
-    // //   targets: logo,
-    // //   y: 450,
-    // //   duration: 2000,
-    // //   ease: 'Power2',
-    // //   yoyo: true,
-    // //   loop: -1,
-    // // });
   }
 }
 
