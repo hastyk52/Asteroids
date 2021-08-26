@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use('/scoreboard', router);
 
-const port = 3005;
+const port = process.env.PORT || 3005;
 app.listen(port, () => {
   console.log(`Express server listening on port: ${port}`);
 });
