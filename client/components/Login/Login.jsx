@@ -1,47 +1,38 @@
-import React from 'react';
+import React, { useState, useContext } from 'react';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import useStyles from '../../hooks/useStyles';
+import AppContext from '../contexts/AppContext';
 
-class Login extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      username: '',
-    };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
+const Login = function () {
+  const classes = useStyles();
+  const [username, setUsername] = useState('');
+  const { setUser } = useContext(AppContext);
 
-  handleChange(e) {
-    const change = {};
-    change[e.target.name] = e.target.value;
-    this.setState(change);
-  }
-
-  handleSubmit(e) {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    const { handleLogin } = this.props;
-    const { username } = this.state;
-    handleLogin(username);
-    this.setState({ username: '' });
-  }
+    setUser(username);
+  };
 
-  render() {
-    const { username } = this.state;
-    return (
-      <>
-        <form onSubmit={this.handleSubmit}>
-          <input
-            name="username"
-            value={username}
-            type="text"
-            placeholder="username"
-            onChange={this.handleChange}
-            required
-          />
-          <button type="submit">Login</button>
-        </form>
-      </>
-    );
-  }
-}
+  return (
+    <form noValidate autoComplete="off" onSubmit={handleSubmit} style={{ display: 'flex', alignItems: 'center' }}>
+
+      <TextField
+        onChange={(e) => (setUsername(e.target.value))}
+        label="Username"
+        variant="outlined"
+        color="secondary"
+        required
+      />
+      <Button
+        variant="contained"
+        type="submit"
+        className={classes.btn}
+      >
+        Login
+      </Button>
+    </form>
+  );
+};
 
 export default Login;

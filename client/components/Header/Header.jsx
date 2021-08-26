@@ -1,17 +1,35 @@
 import React from 'react';
+import AppBar from '@material-ui/core/AppBar';
+import ToolBar from '@material-ui/core/AppBar';
+import Typography from '@material-ui/core/Typography';
+import Container from '@material-ui/core/Container';
+import useStyles from '../../hooks/useStyles';
+
 import Login from '../Login/Login';
 
-const Header = ({ user, handleLogin }) => (
-  <header style={{ display: 'flex', justifyContent: 'space-between' }}>
-    <h1>Asteroids</h1>
-    {user ? (
-      <div>
-        <span>{'Good luck '}</span>
-        <span id="username">{user}</span>
-      </div>
-    ) : <Login handleLogin={handleLogin} />}
-
-  </header>
-);
+const Header = ({ user }) => {
+  const classes = useStyles();
+  return (
+    <AppBar>
+      <ToolBar>
+        <Container className={classes.header}>
+          <Typography variant="h3">
+            Asteroids
+          </Typography>
+          {
+            user ? (
+              <Typography
+                variant="h6"
+                id="username"
+              >
+                {user}
+              </Typography>
+            ) : <Login  />
+          }
+        </Container>
+      </ToolBar>
+    </AppBar>
+  );
+};
 
 export default Header;

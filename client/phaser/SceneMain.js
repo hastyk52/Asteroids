@@ -145,7 +145,7 @@ class Main extends Phaser.Scene {
 
     // Set up score
     let score = 0;
-    let scoreText = this.add.text(16, 16, 'Score: 0', { fontSize: '32px', color: 'white' });
+    const scoreText = this.add.text(16, 16, 'Score: 0', { fontSize: '32px', color: 'white' });
 
     // Handle Collisions
     this.physics.add.collider(this.playerLasers, this.enemies, (laser, enemy) => {
