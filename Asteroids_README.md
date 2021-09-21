@@ -8,10 +8,10 @@ A remake of the 1979 arcade classic Asteroids. This project was created during a
 
 ## Installation/Setup
 
-__First:__
-\n`npm install --legacy-peer-deps` - Install project dependencies using legacy-peer-deps
+__First:__  
+`npm install --legacy-peer-deps` - Install project dependencies using legacy-peer-deps
 
-__Second:__
+__Second:__  
 `npm run build` - Builds webpack code bundle with production settings
 `npm run react-dev` - Builds project and web server for development
 
