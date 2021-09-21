@@ -12,6 +12,6 @@ __First:__
 `npm install --legacy-peer-deps` - Install project dependencies using legacy-peer-deps
 
 __Second:__  
-`npm run build` - Builds webpack code bundle with production settings
+`npm run build` - Builds webpack code bundle with production settings   
 `npm run react-dev` - Builds project and web server for development
 
