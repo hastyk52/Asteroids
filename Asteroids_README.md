@@ -20,7 +20,7 @@ __Second:__
 
 The public version of the game and highscores can be seen [here](https://arcane-cliffs-76702.herokuapp.com/).  
 * The game cannot be accessed until the user goes through a psuedo-login process to gather a name for the scoreboard. Enter a name in the prompted input, and click start in the game viewer.   
-* The game will begin the player must avoid the meteors while destroying them with their own lasers. The score increases for every meteor destroyed. If a meteor collides with the player the game ends and the player is promted to either restart or submit their score.  
+* The game will begin and the player must avoid or destroy the meteors. The score increases for every meteor destroyed. If a meteor collides with the player the game ends and the player is promted to either restart or submit their score.  
 * If the player submits a score it is stored in the highscore database and presented on the top scores if it is in the top 10.  
 * If the player submits their score the game viewer reverts to the title screen. If the player clicks restart the score will not be submitted and the gameplay restarts.
 
