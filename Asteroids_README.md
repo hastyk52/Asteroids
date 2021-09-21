@@ -4,4 +4,14 @@ A remake of the 1979 arcade classic Asteroids. This project was created during a
 
 ## Requirements
 
-install using npm install --legacy-peer-deps
+[Node.js](https://nodejs.org) necessary for scripts and dependencies via 'npm'.
+
+## Installation/Setup
+
+__First:__
+'npm install --legacy-peer-deps' - Install project dependencies using legacy-peer-deps
+
+__Second:__
+'npm run build' - Builds webpack code bundle with production settings
+'npm run react-dev' - Builds project and web server for development
+
