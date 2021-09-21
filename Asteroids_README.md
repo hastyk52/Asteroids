@@ -5,6 +5,7 @@ A remake of the 1979 arcade classic Asteroids. This project was created during a
 ## Requirements
 
 [Node.js](https://nodejs.org) necessary for scripts and dependencies via 'npm'.
+[postgreSQL](https://www.postgresql.org/download/) Necessary for storing scores.
 
 ## Installation/Setup
 
@@ -12,6 +13,20 @@ __First:__
 `npm install --legacy-peer-deps` - Install project dependencies using legacy-peer-deps
 
 __Second:__  
-`npm run build` - Builds webpack code bundle with production settings   
+`npm run build` - Builds project with production settings   
 `npm run react-dev` - Builds project and web server for development
+
+## Usage
+
+The public version of the game and highscores can be seen [here](https://arcane-cliffs-76702.herokuapp.com/). The game cannot be accessed until the user goes through a psuedo logon process to gather a name for the scoreboard. Enter a name in the prompted input, and click start in the game viewer. The game will begin the player must avoid the meteors while destroying them with their own lasers. The score increases for every meteor destroyed. if a meteor connects with the player the game ends and the player is promted to either restart or submit their score. If the player submits a score it is stored in the highscore database and presented on the top scores if it is in the top 10. If the player submits their score the game viewer reverts to the title screen. If the player clicks restart the score will not be submitted and the gameplay restarts.
+
+the controls are as follows:
+| Key | Control |
+|-----|---------|
+| `w` | Forward thrust |
+| `a` | Spin counter-clockwise |
+| `d` | Spin clockwise |
+| `space` | Shoot |
+
+If you'd like to make changes to the code. Clone the repo, run `npm install`, then run `npm run react-dev`. This will generate an express server hosting all the files in the `dist` folder (localhost:3005 bu default).
 
