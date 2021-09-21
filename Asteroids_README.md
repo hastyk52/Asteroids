@@ -24,7 +24,7 @@ The public version of the game and highscores can be seen [here](https://arcane-
 * If the player submits a score it is stored in the highscore database and presented on the top scores if it is in the top 10.  
 * If the player submits their score the game viewer reverts to the title screen. If the player clicks restart the score will not be submitted and the gameplay restarts.
 
-the controls are as follows:
+__Constrols:__
 | Key | Control |
 |-----|---------|
 | `w` | Forward thrust |
