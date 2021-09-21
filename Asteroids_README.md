@@ -5,7 +5,7 @@ A remake of the 1979 arcade classic Asteroids. This project was created during a
 ## Requirements
 
 [Node.js](https://nodejs.org) necessary for scripts and dependencies via 'npm'.  
-[postgreSQL](https://www.postgresql.org/download/) Necessary for storing scores.
+[postgreSQL](https://www.postgresql.org/download/) necessary for storing scores.
 
 ## Installation/Setup  
 1. Clone this  repository or download its zip.
