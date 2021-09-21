@@ -47,3 +47,6 @@ __Future Plans__
 * Add powerups (rapid fire, exploding missiles, ect...)
 * Increase difficulty as time/score increase
 
+
+## Credits
+[Build a space shooter with phaser 3](https://learn.yorkcs.com/2019/02/06/build-a-space-shooter-with-phaser-3/)
