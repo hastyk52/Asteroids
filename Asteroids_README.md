@@ -7,14 +7,12 @@ A remake of the 1979 arcade classic Asteroids. This project was created during a
 [Node.js](https://nodejs.org) necessary for scripts and dependencies via 'npm'.
 [postgreSQL](https://www.postgresql.org/download/) Necessary for storing scores.
 
-## Installation/Setup
-
-__First:__  
-`npm install --legacy-peer-deps` - Install project dependencies using legacy-peer-deps
-
-__Second:__  
-`npm run build` - Builds project with production settings   
-`npm run react-dev` - Builds project and web server for development
+## Installation/Setup  
+1. Clone this  repository or download its zip.
+2. navigate inside the directory using the console
+3. Install project dependencies using legacy-peer-deps with `npm install --legacy-peer-deps`
+4. Either build the project with production settings using `npm run build`, or with development settings using `npm run react-dev`
+5. serve the resulting build on `localhost:3005` using `npm start`
 
 ## Usage
 
