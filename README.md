@@ -4,7 +4,7 @@
 
 ## About
 
-A remake of the 1979 arcade classic Asteroids. This project was created during a two-day MVP (minimum viable product) sprint at hackreactor. The original project can be found [here](https://arcane-cliffs-76702.herokuapp.com/). It includes a working implementation of the game, a suedo login process, and a highscore board/database. 
+A remake of the 1979 arcade classic Asteroids. This project was created during a two-day MVP (minimum viable product) sprint at Hackreactor. The original project can be found [here](https://arcane-cliffs-76702.herokuapp.com/). It includes a working implementation of the game, a pseudo login process, and a highscore board/database. 
 
 ## Requirements
 
@@ -12,7 +12,7 @@ A remake of the 1979 arcade classic Asteroids. This project was created during a
 [postgreSQL](https://www.postgresql.org/download/) necessary for storing scores.
 
 ## Installation/Setup  
-1. Clone this  repository or download its zip.
+1. Clone this repository or download its zip.
 2. navigate inside the directory using the console
 3. Install project dependencies using legacy-peer-deps with `npm install --legacy-peer-deps`
 4. Either build the project with production settings using `npm run build`, or with development settings using `npm run react-dev`
@@ -21,9 +21,9 @@ A remake of the 1979 arcade classic Asteroids. This project was created during a
 ## Usage
 
 The public version of the game and highscores can be seen [here](https://arcane-cliffs-76702.herokuapp.com/).  
-* The game cannot be accessed until the user goes through a psuedo-login process to gather a name for the scoreboard. Enter a name in the prompted input, and click start in the game viewer.   
-* The game will begin and the player must avoid or destroy the meteors. The score increases for every meteor destroyed. If a meteor collides with the player the game ends and the player is promted to either restart or submit their score.  
-* If the player submits a score it is stored in the highscore database and presented on the top scores if it is in the top 10.  
+* The game cannot be accessed until the user goes through a pseudo-login process to gather a name for the scoreboard. Enter a name in the prompted input, and click start in the game viewer.   
+* The game will begin and the player must avoid or destroy the meteors. The score increases for every meteor destroyed. If a meteor collides with the player the game ends and the player is prompted to either restart or submit their score.  
+* If the player submits a score it is stored in the high score database and presented on the top scores if it is in the top 10.  
 * If the player submits their score the game viewer reverts to the title screen. If the player clicks restart the score will not be submitted and the gameplay restarts.
 
 __Constrols:__
@@ -45,14 +45,16 @@ August 2021 - Version 1.0 Released
 __Future Plans__
 * Add authorization
 * Change to allow anyone to play the game but authorization required to interact with highscore board
-* Allow players to change the scoreboard to display thier scores, scores outside the top 10, ect...
-* Migrate to mongoDB and add geolocation query's to sort by location
-* Change meteors size to vary.
-* When larger meteors are hit the break into smaller mneteors
+* Allow players to change the scoreboard to display their scores, scores outside the top 10, ect...
+* Migrate to mongoDB and add geolocation queries to sort by location
+* Change the meteor's size to vary.
+* When larger meteors are hit the break into smaller meteors
 * Add an alien spaceship enemy
-* Add powerups (rapid fire, exploding missiles, ect...)
+* Add power ups (rapid fire, exploding missiles, ect...)
 * Increase difficulty as time/score increase
 
 
 ## Credits
 [Build a space shooter with phaser 3](https://learn.yorkcs.com/2019/02/06/build-a-space-shooter-with-phaser-3/)
+
+
